@@ -374,52 +374,52 @@ publishing {
           "Provides a jar with all dependencies")
     }
 
-    googleAdsSubproject(MavenPublication) {
-//            println(project(':subprojectA').tasks)
-      groupId 'com.google.api-ads'
-      artifactId 'google-ads'
-      artifact jar
-//            artifact project(':google-ads').tasks.getByName('jar')
-      pom {
-        name = "Google Ads API client library for Java"
-        description = "Parent for the google-ads-java subprojects"
-        url = 'https://github.com/googleads/google-ads-java'
-        licenses {
-          license {
-            name = 'The Apache License, Version 2.0'
-            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-          }
-        }
-        scm {
-          connection = 'scm:git:https://github.com/googleads/google-ads-java'
-          developerConnection = 'scm:git:https://github.com/googleads/google-ads-java'
-          url = 'https://github.com/googleads/google-ads-java'
-        }
-        developers {
-          developer {
-            id = 'josh'
-            name = 'Josh Radcliff'
-            email = 'jradcliff@users.noreply.github.com'
-            organization = 'Google'
-            organizationUrl = 'https://www.google.com'
-          }
-          developer {
-            id = 'nick'
-            name = 'Nick Birnie'
-            email = 'nwbirnie@users.noreply.github.com'
-            organization = 'Google'
-            organizationUrl = 'https://www.google.com'
-          }
-          developer {
-            id = 'devin'
-            name = 'Devin Chasanoff'
-            email = 'devchas@users.noreply.github.com'
-            organization = 'Google'
-            organizationUrl = 'https://www.google.com'
-          }
-        }
-      }
-    }
+//    googleAdsSubproject(MavenPublication) {
+////            println(project(':subprojectA').tasks)
+//      groupId 'com.google.api-ads'
+//      artifactId 'google-ads'
+//      artifact jar
+////            artifact project(':google-ads').tasks.getByName('jar')
+//      pom {
+//        name = "Google Ads API client library for Java"
+//        description = "Parent for the google-ads-java subprojects"
+//        url = 'https://github.com/googleads/google-ads-java'
+//        licenses {
+//          license {
+//            name = 'The Apache License, Version 2.0'
+//            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//          }
+//        }
+//        scm {
+//          connection = 'scm:git:https://github.com/googleads/google-ads-java'
+//          developerConnection = 'scm:git:https://github.com/googleads/google-ads-java'
+//          url = 'https://github.com/googleads/google-ads-java'
+//        }
+//        developers {
+//          developer {
+//            id = 'josh'
+//            name = 'Josh Radcliff'
+//            email = 'jradcliff@users.noreply.github.com'
+//            organization = 'Google'
+//            organizationUrl = 'https://www.google.com'
+//          }
+//          developer {
+//            id = 'nick'
+//            name = 'Nick Birnie'
+//            email = 'nwbirnie@users.noreply.github.com'
+//            organization = 'Google'
+//            organizationUrl = 'https://www.google.com'
+//          }
+//          developer {
+//            id = 'devin'
+//            name = 'Devin Chasanoff'
+//            email = 'devchas@users.noreply.github.com'
+//            organization = 'Google'
+//            organizationUrl = 'https://www.google.com'
+//          }
+//        }
+//      }
+//    }
   }
 
   repositories {
@@ -441,7 +441,7 @@ publishing {
 
 signing {
   sign publishing.publications.shadow
-  sign publishing.publications.googleAdsSubproject
+//  sign publishing.publications.googleAdsSubproject
 }
 
 // Disables signing tasks except on sonatype deploy. Avoids failing build for
@@ -451,17 +451,6 @@ gradle.taskGraph.whenReady {
       .findAll { it.name.matches("publish.+ToSonatypeRepository") }
       .isEmpty()) {
     tasks.findByName("signShadowPublication").enabled = false
-  }
-}
-
-// Provide a helpful error message for missing sonatype credentials.
-tasks.findAll {
-  if (it.name.matches("publish.+ToSonatypeRepository")) {
-    it.doFirst {
-      if (!sonatypeCredentialsConfig.exists()) {
-        throw new GradleException("Unable to load Sonatype credentials from ${sonatypeCredentialsConfig}.")
-      }
-    }
   }
 }
 
