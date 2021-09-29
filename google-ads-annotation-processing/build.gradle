@@ -34,10 +34,10 @@ final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.s
 
 publishing {
     publications {
-        googleAdsAnotationSubproject(MavenPublication) {
+        maven(MavenPublication) {
             groupId 'com.google.api-ads'
             artifactId 'google-ads-annotation-processing'
-            artifact jar
+//            artifact jar
 //            artifact project(':google-ads-annotation-processing').tasks.getByName('sourceJar')
             pom {
                 name = "Google Ads API client library for Java"
@@ -99,7 +99,7 @@ publishing {
 }
 
 signing {
-    sign publishing.publications.googleAdsAnotationSubproject
+    sign publishing.publications.googleAdsAnnotationSubproject
 }
 
 // Provide a helpful error message for missing sonatype credentials.

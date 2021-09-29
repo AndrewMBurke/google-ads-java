@@ -374,7 +374,7 @@ publishing {
           "Provides a jar with all dependencies")
     }
 
-    googleAdsSubproject(MavenPublication) {
+    maven(MavenPublication) {
 //            println(project(':subprojectA').tasks)
       groupId 'com.google.api-ads'
       artifactId 'google-ads'
