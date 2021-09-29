@@ -99,7 +99,7 @@ publishing {
 }
 
 signing {
-    sign publishing.publications.googleAdsAnnotationSubproject
+    sign publishing.publications.maven
 }
 
 // Provide a helpful error message for missing sonatype credentials.

@@ -441,7 +441,7 @@ publishing {
 
 signing {
   sign publishing.publications.shadow
-  sign publishing.publications.googleAdsSubproject
+  sign publishing.publications.maven
 }
 
 // Disables signing tasks except on sonatype deploy. Avoids failing build for
