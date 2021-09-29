@@ -352,7 +352,7 @@ def configurePom(publication, nameToSet, descriptionToSet) {
   }
 }
 
-final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.sonatype-creds')
+//final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.sonatype-creds')
 
 publishing {
   publications {
@@ -422,21 +422,21 @@ publishing {
 //    }
   }
 
-  repositories {
-    maven {
-      url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
-      name = "sonatype"
-
-      if (sonatypeCredentialsConfig.exists()) {
-        def props = new Properties()
-        sonatypeCredentialsConfig.withInputStream { props.load(it) }
-        credentials {
-          username props['username']
-          password props['password']
-        }
-      }
-    }
-  }
+//  repositories {
+//    maven {
+//      url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+//      name = "sonatype"
+//
+//      if (sonatypeCredentialsConfig.exists()) {
+//        def props = new Properties()
+//        sonatypeCredentialsConfig.withInputStream { props.load(it) }
+//        credentials {
+//          username props['username']
+//          password props['password']
+//        }
+//      }
+//    }
+//  }
 }
 
 signing {

@@ -4,8 +4,6 @@ plugins {
     id 'signing'
 }
 
-
-
 final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.sonatype-creds')
 
 publishing {
@@ -13,8 +11,6 @@ publishing {
         release(MavenPublication) {
             groupId = 'com.google.api-ads'
             artifactId = 'google-ads-parent'
-
-//            artifact "google-ads-parent-15.0.0.pom"
 
             pom {
                 name = "Google Ads API client library for Java"

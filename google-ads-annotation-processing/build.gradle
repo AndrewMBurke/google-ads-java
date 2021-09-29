@@ -19,7 +19,7 @@
 
 plugins {
     id 'com.google.api-ads.java-conventions'
-    id 'signing'
+//    id 'signing'
 }
 
 dependencies {
@@ -30,85 +30,85 @@ dependencies {
 
 description = 'Google Ads API client library for Java annotation processor'
 
-final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.sonatype-creds')
-
-publishing {
-    publications {
-//        googleAdsAnnotationSubproject(MavenPublication) {
-//            groupId 'com.google.api-ads'
-//            artifactId 'google-ads-annotation-processing'
-////            artifact jar
-////            artifact project(':google-ads-annotation-processing').tasks.getByName('sourceJar')
-//            pom {
-//                name = "Google Ads API client library for Java"
-//                description = "Parent for the google-ads-java subprojects"
-//                url = 'https://github.com/googleads/google-ads-java'
-//                licenses {
-//                    license {
-//                        name = 'The Apache License, Version 2.0'
-//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    }
-//                }
-//                scm {
-//                    connection = 'scm:git:https://github.com/googleads/google-ads-java'
-//                    developerConnection = 'scm:git:https://github.com/googleads/google-ads-java'
-//                    url = 'https://github.com/googleads/google-ads-java'
-//                }
-//                developers {
-//                    developer {
-//                        id = 'josh'
-//                        name = 'Josh Radcliff'
-//                        email = 'jradcliff@users.noreply.github.com'
-//                        organization = 'Google'
-//                        organizationUrl = 'https://www.google.com'
-//                    }
-//                    developer {
-//                        id = 'nick'
-//                        name = 'Nick Birnie'
-//                        email = 'nwbirnie@users.noreply.github.com'
-//                        organization = 'Google'
-//                        organizationUrl = 'https://www.google.com'
-//                    }
-//                    developer {
-//                        id = 'devin'
-//                        name = 'Devin Chasanoff'
-//                        email = 'devchas@users.noreply.github.com'
-//                        organization = 'Google'
-//                        organizationUrl = 'https://www.google.com'
-//                    }
+//final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.sonatype-creds')
+//
+//publishing {
+//    publications {
+////        googleAdsAnnotationSubproject(MavenPublication) {
+////            groupId 'com.google.api-ads'
+////            artifactId 'google-ads-annotation-processing'
+//////            artifact jar
+//////            artifact project(':google-ads-annotation-processing').tasks.getByName('sourceJar')
+////            pom {
+////                name = "Google Ads API client library for Java"
+////                description = "Parent for the google-ads-java subprojects"
+////                url = 'https://github.com/googleads/google-ads-java'
+////                licenses {
+////                    license {
+////                        name = 'The Apache License, Version 2.0'
+////                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+////                    }
+////                }
+////                scm {
+////                    connection = 'scm:git:https://github.com/googleads/google-ads-java'
+////                    developerConnection = 'scm:git:https://github.com/googleads/google-ads-java'
+////                    url = 'https://github.com/googleads/google-ads-java'
+////                }
+////                developers {
+////                    developer {
+////                        id = 'josh'
+////                        name = 'Josh Radcliff'
+////                        email = 'jradcliff@users.noreply.github.com'
+////                        organization = 'Google'
+////                        organizationUrl = 'https://www.google.com'
+////                    }
+////                    developer {
+////                        id = 'nick'
+////                        name = 'Nick Birnie'
+////                        email = 'nwbirnie@users.noreply.github.com'
+////                        organization = 'Google'
+////                        organizationUrl = 'https://www.google.com'
+////                    }
+////                    developer {
+////                        id = 'devin'
+////                        name = 'Devin Chasanoff'
+////                        email = 'devchas@users.noreply.github.com'
+////                        organization = 'Google'
+////                        organizationUrl = 'https://www.google.com'
+////                    }
+////                }
+////            }
+////        }
+//    }
+//
+//    repositories {
+//        maven {
+//            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+//            name = "sonatype"
+//
+//            if (sonatypeCredentialsConfig.exists()) {
+//                def props = new Properties()
+//                sonatypeCredentialsConfig.withInputStream { props.load(it) }
+//                credentials {
+//                    username props['username']
+//                    password props['password']
 //                }
 //            }
 //        }
-    }
-
-    repositories {
-        maven {
-            url 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
-            name = "sonatype"
-
-            if (sonatypeCredentialsConfig.exists()) {
-                def props = new Properties()
-                sonatypeCredentialsConfig.withInputStream { props.load(it) }
-                credentials {
-                    username props['username']
-                    password props['password']
-                }
-            }
-        }
-    }
-}
-
-signing {
-//    sign publishing.publications.googleAdsAnnotationSubproject
-}
-
-// Provide a helpful error message for missing sonatype credentials.
-tasks.findAll {
-    if (it.name.matches("publish.+ToSonatypeRepository")) {
-        it.doFirst {
-            if (!sonatypeCredentialsConfig.exists()) {
-                throw new GradleException("Unable to load Sonatype credentials from ${sonatypeCredentialsConfig}.")
-            }
-        }
-    }
-}
+//    }
+//}
+//
+//signing {
+////    sign publishing.publications.googleAdsAnnotationSubproject
+//}
+//
+//// Provide a helpful error message for missing sonatype credentials.
+//tasks.findAll {
+//    if (it.name.matches("publish.+ToSonatypeRepository")) {
+//        it.doFirst {
+//            if (!sonatypeCredentialsConfig.exists()) {
+//                throw new GradleException("Unable to load Sonatype credentials from ${sonatypeCredentialsConfig}.")
+//            }
+//        }
+//    }
+//}
