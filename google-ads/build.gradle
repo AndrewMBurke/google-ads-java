@@ -374,7 +374,7 @@ publishing {
           "Provides a jar with all dependencies")
     }
 
-    maven(MavenPublication) {
+    googleAdsSubproject(MavenPublication) {
 //            println(project(':subprojectA').tasks)
       groupId 'com.google.api-ads'
       artifactId 'google-ads'
@@ -441,7 +441,7 @@ publishing {
 
 signing {
   sign publishing.publications.shadow
-  sign publishing.publications.maven
+  sign publishing.publications.googleAdsSubproject
 }
 
 // Disables signing tasks except on sonatype deploy. Avoids failing build for

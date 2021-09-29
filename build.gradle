@@ -10,7 +10,7 @@ final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.s
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        release(MavenPublication) {
             groupId = 'com.google.api-ads'
             artifactId = 'google-ads-parent'
 
@@ -76,7 +76,7 @@ publishing {
 }
 
 signing {
-    sign publishing.publications.maven
+    sign publishing.publications.release
 }
 
 //// Disables signing tasks except on sonatype deploy. Avoids failing build for

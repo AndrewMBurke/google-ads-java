@@ -34,7 +34,7 @@ final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.s
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        googleAdsAnnotationSubproject(MavenPublication) {
             groupId 'com.google.api-ads'
             artifactId 'google-ads-annotation-processing'
 //            artifact jar
@@ -99,7 +99,7 @@ publishing {
 }
 
 signing {
-    sign publishing.publications.maven
+    sign publishing.publications.googleAdsAnnotationSubproject
 }
 
 // Provide a helpful error message for missing sonatype credentials.
