@@ -20,6 +20,7 @@ publishing {
 //            configurations.sourcesElements.artifacts.each {
 //                artifact it
 //            }
+            from components.java
 
             groupId = 'com.google.api-ads'
             artifactId = 'google-ads-parent'
