@@ -10,22 +10,11 @@ final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.s
 
 publishing {
     publications {
-        //publication -> project.
-//            publication ->
-//            project.shadow.component(publication)
-//            // Publishes the javadoc + sources with the shadowjar.
-//            configurations.javadocElements.artifacts.each {
-//                artifact it
-//            }
-//            configurations.sourcesElements.artifacts.each {
-//                artifact it
-//            }
-
         release(MavenPublication) {
-//            from components.java
-
             groupId = 'com.google.api-ads'
             artifactId = 'google-ads-parent'
+
+            artifact "google-ads-parent-15.0.0.pom"
 
             pom {
                 name = "Google Ads API client library for Java"
