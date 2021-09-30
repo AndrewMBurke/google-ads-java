@@ -32,13 +32,13 @@ description = 'Google Ads API client library for Java annotation processor'
 final def sonatypeCredentialsConfig = file(System.properties['user.home'] + '/.sonatype-creds')
 //
 publishing {
-    publications {
-        googleAdsAnnotationSubproject(MavenPublication) {
-            groupId 'com.google.api-ads'
-            artifactId 'google-ads-annotation-processing'
-            artifact jar
-        }
-    }
+//    publications {
+//        googleAdsAnnotationSubproject(MavenPublication) {
+//            groupId 'com.google.api-ads'
+//            artifactId 'google-ads-annotation-processing'
+//            artifact jar
+//        }
+//    }
 
     repositories {
         maven {
